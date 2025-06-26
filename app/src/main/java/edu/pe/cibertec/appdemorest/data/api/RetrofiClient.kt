@@ -29,4 +29,6 @@ object RetrofiClient{
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
+
+    val apiService: JsonPlaceholderAPI = retrofit.create(JsonPlaceholderAPI::class.java)
 }
