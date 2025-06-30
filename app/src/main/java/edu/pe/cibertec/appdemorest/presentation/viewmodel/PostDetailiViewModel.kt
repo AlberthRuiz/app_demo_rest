@@ -17,7 +17,7 @@ class PostDetailiViewModel : ViewModel(){
     private val repository = PostRepository()
 
     private val _postsState = MutableStateFlow<UiState<Post>>(UiState.Loading)
-    val photState: StateFlow<UiState<Post>> = _postsState.asStateFlow()
+    val postState: StateFlow<UiState<Post>> = _postsState.asStateFlow()
 
     private val _commentState = MutableStateFlow<UiState<List<Comment>>>(UiState.Loading)
     val commentState : StateFlow<UiState<List<Comment>>> = _commentState.asStateFlow()

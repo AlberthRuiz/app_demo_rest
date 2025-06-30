@@ -1,14 +1,11 @@
 package edu.pe.cibertec.appdemorest.presentation.screen
 
-import android.R
-import android.widget.Space
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.*
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -17,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -28,7 +26,7 @@ import androidx.navigation.NavController
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-
+    navController: NavController = NavController(LocalContext.current)
 ) {
     Scaffold(
         topBar = {
@@ -40,8 +38,8 @@ fun HomeScreen(
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = androidx.compose.material3.MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = androidx.compose.material3.MaterialTheme.colorScheme.onPrimaryContainer,
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
 
             )
@@ -64,6 +62,7 @@ fun HomeScreen(
                     descripcin = "Ver lista de los post publicados",
                     icon = Icons.Default.DateRange,
                     onClick = {
+                        navController.navigate("posts")
 
                     }
                 )
@@ -73,6 +72,7 @@ fun HomeScreen(
                     descripcin = "Ver lista de usuario registrados",
                     icon = Icons.Default.Face,
                     onClick = {
+                        navController.navigate("users")
 
                     }
                 )
@@ -82,7 +82,7 @@ fun HomeScreen(
                     descripcin = "Ver fotos multimedia.",
                     icon = Icons.Default.FavoriteBorder,
                     onClick = {
-
+                        navController.navigate("photos")
                     }
                 )
 

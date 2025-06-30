@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class PhotGalleryViewModel: ViewModel(){
+class PhotoGalleryViewModel: ViewModel(){
     private val repository = PhotoRepository()
 
     private val _photosState = MutableStateFlow<UiState<List<Photo>>>(UiState.Loading)
